@@ -19,8 +19,8 @@ All important files regarding to our AMPLIFIER project.
 
 ## 3D
 - PCB (Printen)
-    - WemosR1D1
-    - Amplifier
+    - [ ] WemosR1D1
+    - [ ] Amplifier
     - VU meter
     - ? Display & Knop ?
 - Behuizing (3D-Print)
