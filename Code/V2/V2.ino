@@ -155,7 +155,7 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
-</script>")
+</script>");
           
           /*  client.print("<p><a href=\"/volume/0\"><button class=\"button\">0%</button></a></p>");
             client.print("<p><a href=\"/volume/20\"><button class=\"button\">20%</button></a></p>");

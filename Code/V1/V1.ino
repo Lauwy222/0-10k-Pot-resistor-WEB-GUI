@@ -1,3 +1,7 @@
+/*
+ * COMPILE IN `115200` BAUDRATE
+ */
+
 #include <ESP8266WiFi.h>
 const char* ssid     = "HP-OMEN-015"; //Enter network SSID 
 const char* password = "0613974488"; //Enter network PASSWORD 
