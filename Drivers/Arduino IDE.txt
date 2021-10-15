@@ -1,0 +1,19 @@
+Installeer de arduino IDE
+
+File
+
+Preferences
+
+Onder additional board manager URLs plak je: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+Restart de IDE
+
+Tools
+
+Board
+
+Board manager
+
+Zoek op ESP8266 en installeer de laatste versie
+
+restart de IDE
