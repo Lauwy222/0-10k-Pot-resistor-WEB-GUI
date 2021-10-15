@@ -13,8 +13,8 @@ All important files regarding to our AMPLIFIER project.
 - [x] VU meter
 
 ## Microcontroller
-- [ ] Volume besturen (APP/Knop)
-- [ ] Volume uitlezen (APP/Display)
+- [ ] Volume control (APP/Knop)
+- [ ] Volume read (APP/Display)
 - [ ] VU meter (APP/Display)
 
 ## 3D
@@ -22,8 +22,8 @@ All important files regarding to our AMPLIFIER project.
     - [ ] WemosR1D1
     - [ ] Amplifier
     - [ ] VU meter
-    - [ ] ? Display & Knop ?
-- [ ] Behuizing (3D-Print)
+    - [ ] ? Display & button ?
+- [ ] Case (3D-Print)
 
 ## Installation
 The installation guide can be found [here](https://github.com/Lauwy222/Project_Elektronica_Microprocessor/blob/main/INSTALL.md).
