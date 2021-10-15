@@ -1,24 +1,26 @@
+/*
+ * COMPILE IN `115200` BAUDRATE
+ */
+
 #include <ESP8266WiFi.h>
-const char* ssid     = "HP-OMEN-015"; //Enter network SSID 
-const char* password = "0613974488"; //Enter network PASSWORD 
+const char* ssid     = "ESP8266AP"; //Enter network SSID 
+const char* password = "APELEKTRO"; //Enter network PASSWORD 
 
 WiFiServer server(80);
 String header;
 String volume = "0"; 
 
 void connectToWifi(){
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("");
-  Serial.println("WiFi connected.");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
-  server.begin();
+  delay(10);
+  Serial.println('\n');
+
+  WiFi.softAP(ssid, password);             // Start the access point
+  Serial.print("Access Point \"");
+  Serial.print(ssid);
+  Serial.println("\" started");
+
+  Serial.print("IP address:\t");
+  Serial.println(WiFi.softAPIP());         // Send the IP address of the ESP8266 to the computer
 }
 
 void setup() {
@@ -89,45 +91,9 @@ void createWebServer(){
             client.println("<link rel=\"icon\" href=\"data:,\">");
            
             client.println("<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
-            client.println("
-.slidecontainer {
-  width: 100%;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
-            ");
+            client.println(".button { background-color: #2ca545; border: none; color: white; padding: 16px 40px; margin: 25px; box-shadow: 0px 0px 15px 1px #aaaaaa;");
+            client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
+            client.println(".buttoncenter { background-color: #ba1e1e;}");
             client.println("</style></head>");
             
             
@@ -141,23 +107,7 @@ void createWebServer(){
             //client.println("<h2>Volume: </h2>" + volume + "%");
             
             client.println("");
-            client.print("
-<div class=\"slidecontainer\">
-  <input type=\"range\" min=\"1\" max=\"100\" value=\"50\" class=\"slider\" id=\"myRange\">
-  <p>Value: <span id=\"demo\"></span></p>
-</div>
-
-<script>
-var slider = document.getElementById(\"myRange\");
-var output = document.getElementById(\"demo\");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>")
-          
-          /*  client.print("<p><a href=\"/volume/0\"><button class=\"button\">0%</button></a></p>");
+            client.print("<p><a href=\"/volume/0\"><button class=\"button\">0%</button></a></p>");
             client.print("<p><a href=\"/volume/20\"><button class=\"button\">20%</button></a></p>");
             client.print("<p><a href=\"/volume/40\"><button class=\"button\">40%</button></a></p>");
             client.print("<p><a href=\"/volume/60\"><button class=\"button\">60%</button></a></p>");
@@ -165,8 +115,6 @@ slider.oninput = function() {
             client.print("<p><a href=\"/volume/100\"><button class=\"button\">100%</button></a></p>");
             client.println("");          
                
-
-               */
             client.println("</body></html>");
             
             
