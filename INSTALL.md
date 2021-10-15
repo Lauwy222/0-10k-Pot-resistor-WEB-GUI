@@ -1,6 +1,6 @@
 ## Installation
 
-Install the [Arduino IDE](https://www.arduino.cc/en/software) and the [drivers (WINDOWS)](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE).
+Install the [Arduino IDE] [IDE] and the [CH340G chipset drivers(WINDOWS)]. Or go back [HOME] [HOME]
 
 
 > 001 
@@ -47,3 +47,12 @@ Install the [Arduino IDE](https://www.arduino.cc/en/software) and the [drivers (
 | Arduino IDE | https://www.arduino.cc/en/software |
 | CH340G chipset drivers | https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE |
 | Addition board URL | http://arduino.esp8266.com/stable/package_esp8266com_index.json |
+
+
+
+[HOME]: https://github.com/Lauwy222/Project_Elektronica_Microprocessor "Go back"
+[IDE]: https://www.arduino.cc/en/software 
+[CH340G-Drivers]: https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE
+[ABU]: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+
