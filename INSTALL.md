@@ -1,6 +1,6 @@
 ## Installation
 
-Install the [Arduino IDE] [IDE] and the [CH340G chipset drivers(WINDOWS)]. Or go back [HOME] [HOME]
+Install the [Arduino IDE][IDE] and the [CH340G chipset drivers(WINDOWS)][CH340G-Drivers]. Or go back [HOME][HOME]
 
 
 > 001 
