@@ -3,6 +3,8 @@ const char* ssid     = "HP-OMEN-015"; //Enter network SSID
 const char* password = "0613974488"; //Enter network PASSWORD 
 
 WiFiServer server(80);
+String header;
+String volume = "0"; 
 
 void connectToWifi(){
   Serial.print("Connecting to ");
@@ -22,38 +24,30 @@ void connectToWifi(){
 void setup() {
   Serial.begin(115200);
   connectToWifi(); 
-
-  int volume = 5;
 }
   void volume0(){
-  Serial.println("Volume: 0%");
-  volume = 0;
-  Serial.println(volume);
+  volume = "0";
+  Serial.println("Volume=" + volume + "%");
 }
   void volume20(){
-  Serial.println("Volume: 20%");
-  volume = 20;
-  Serial.println(volume);
+  volume = "20";
+  Serial.println("Volume=" + volume + "%");
 }
   void volume40(){
-  Serial.println("Volume: 40%");
-  volume = 40;
-  Serial.println(volume);
+  volume = "40";
+  Serial.println("Volume=" + volume + "%");
 }
   void volume60(){
-  Serial.println("Volume: 60%");
-  volume = 60;
-  Serial.println(volume);
+  volume = "60";
+  Serial.println("Volume=" + volume + "%");
 }
   void volume80(){
-  Serial.println("Volume: 80%");
-  volume = 80;
-  Serial.println(volume);
+  volume = "80";
+  Serial.println("Volume=" + volume + "%");
 }
   void volume100(){
-  Serial.println("Volume: 100%");
-  volume = 100;
-  Serial.println(volume);
+  volume = "100";
+  Serial.println("Volume=" + volume + "%");
 }
 
 
