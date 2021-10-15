@@ -26,7 +26,7 @@ All important files regarding to our AMPLIFIER project.
 - [ ] Behuizing (3D-Print)
 
 ## Installation
-
+The installationguide can be found [here](https://github.com/Lauwy222/Project_Elektronica_Microprocessor/blob/main/INSTALL.md).
 
 
 ## Usefull links
