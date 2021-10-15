@@ -1,0 +1,39 @@
+:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void volume0()':
+Testsketch:30:3: error: 'volume' was not declared in this scope; did you mean 'volume0'?
+   30 |   volume = 0;
+      |   ^~~~~~
+      |   volume0
+C:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void volume20()':
+Testsketch:35:3: error: 'volume' was not declared in this scope; did you mean 'volume0'?
+   35 |   volume = 20;
+      |   ^~~~~~
+      |   volume0
+C:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void volume40()':
+Testsketch:40:3: error: 'volume' was not declared in this scope; did you mean 'volume0'?
+   40 |   volume = 40;
+      |   ^~~~~~
+      |   volume0
+C:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void volume60()':
+Testsketch:45:3: error: 'volume' was not declared in this scope; did you mean 'volume0'?
+   45 |   volume = 60;
+      |   ^~~~~~
+      |   volume0
+C:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void volume80()':
+Testsketch:50:3: error: 'volume' was not declared in this scope; did you mean 'volume0'?
+   50 |   volume = 80;
+      |   ^~~~~~
+      |   volume0
+C:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void volume100()':
+Testsketch:55:3: error: 'volume' was not declared in this scope; did you mean 'volume0'?
+   55 |   volume = 100;
+      |   ^~~~~~
+      |   volume0
+C:\Users\lauwy\Documents\Arduino\Testsketch\Testsketch.ino: In function 'void createWebServer()':
+Testsketch:70:9: error: 'header' was not declared in this scope
+   70 |         header += c;
+      |         ^~~~~~
+Testsketch:135:5: error: 'header' was not declared in this scope
+  135 |     header = "";
+      |     ^~~~~~
+exit status 1
+'volume' was not declared in this scope; did you mean 'volume0'?
