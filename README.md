@@ -7,23 +7,23 @@ All important files regarding to our AMPLIFIER project.
 
 ## Amplifier
 
-- Amplifier
-- Limiter
-- Filter
-- VU meter
+- [x] Amplifier
+- [x] Limiter
+- [x] Filter
+- [x] VU meter
 
 ## Microcontroller
-- Volume besturen (APP/Knop)
-- Volume uitlezen (APP/Display)
-- VU meter (APP/Display)
+- [ ] Volume besturen (APP/Knop)
+- [ ] Volume uitlezen (APP/Display)
+- [ ] VU meter (APP/Display)
 
 ## 3D
-- PCB (Printen)
+- [ ] PCB (Printen)
     - [ ] WemosR1D1
     - [ ] Amplifier
-    - VU meter
-    - ? Display & Knop ?
-- Behuizing (3D-Print)
+    - [ ] VU meter
+    - [ ] ? Display & Knop ?
+- [ ] Behuizing (3D-Print)
 
 ## Installation
 
