@@ -135,8 +135,8 @@ void createWebServer(){
             client.println(".btn-group button:not(:last-child) {border-right: none;}");
             client.println(".btn-group button:hover {background-color: #3e8e41;}");
             client.println(".btn-group button {background-color: #04AA6D; border: 1px solid green; color: white; padding: 3vh; cursor: pointer; width: 100%; display: block; }");
-            client.println("@media only screen and (min-height: 578px){  .minexceed{    display:none;  }}");
-            client.println("@media only screen and (max-height: 578px){  .btn-group{display: none;}}");
+            client.println("@media only screen and (min-height: 638px){  .minexceed{    display:none;  }}");
+            client.println("@media only screen and (max-height: 638px){  .btn-group{display: none;}}");
             client.println(".callout {  max-width: 100%;  min-width: 100%;}");
             client.println(".callout-header {  padding: 25px 15px;  background: rgb(236, 17, 17);  font-size: 30px;  color: white;}");
             client.println(".callout-container {  padding: 15px;  background-color: #ccc;  color: black}");
@@ -161,7 +161,7 @@ void createWebServer(){
             client.print("</table>");
             client.println("<br>");
             client.println("<div class=\"minexceed\"><div class=\"callout\"><div class=\"callout-header\">!Warning!</div><div class=\"callout-container\">");
-            client.println("<p>You've exceeded our minimum viewheight of 578pixels. Please use desktop mode.</p>");
+            client.println("<p>You've exceeded our minimum viewheight of 638 pixels. Please use desktop mode.</p>");
             client.println("</div></div></div>");
             client.println("<div class=\"btn-group\" style=\"width:100%\">");
             client.print("<p><a href=\"/volume/0\"><button>0%</button></a></p>");
