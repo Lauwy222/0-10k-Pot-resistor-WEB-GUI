@@ -14,6 +14,7 @@ void connectToWifi(){
   Serial.print("Connecting to ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -29,6 +30,8 @@ void setup() {
   Serial.begin(115200);
   connectToWifi(); 
 }
+
+//Volume
   void volume0(){
   volume = "0";
   Serial.println("Volume=" + volume + "%");
@@ -54,6 +57,7 @@ void setup() {
   Serial.println("Volume=" + volume + "%");
 }
 
+//VU
 
 
 void createWebServer(){
