@@ -2,6 +2,10 @@
  * COMPILE IN `115200` BAUDRATE
  */
 
+#include <Wire.h>  
+#include "SSD1306.h"
+SSD1306  display(0x3C, D2, D5);
+
 #include <ESP8266WiFi.h>
 const char* ssid     = "HP-OMEN-015"; //Enter network SSID 
 const char* password = "0613974488"; //Enter network PASSWORD 
@@ -28,6 +32,14 @@ void connectToWifi(){
   Serial.println("WiFi connected.");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+
+  String ipstat = WiFi.localIP;
+  
+  display.init();
+  display.flipScreenVertically();
+  display.drawString(0, 0, const String &ipstat);
+  display.display();
+  
   server.begin();
 }
 
