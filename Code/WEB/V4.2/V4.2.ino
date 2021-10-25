@@ -25,8 +25,55 @@ void connectToWifi(){
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+  display.init();
+  display.flipScreenVertically();
+
+  delay(500);
+  Serial.print(".");
+  
+  display.drawString(0, 0, "Loading.");
+  display.display();
+  delay(500);
+  Serial.print(".");
+  
+  display.drawString(0, 0, "Loading..");
+  display.display();
+  delay(500);
+  Serial.print(".");
+  
+  display.drawString(0, 0, "Loading...");
+  display.display();
+
+  display.drawString(0, 0, "Loading....");
+  display.display();
+  delay(500);
+  Serial.print(".");
+
+  display.drawString(0, 0, "Loading.....");
+  display.display();
+  delay(500);
+  Serial.print(".");
+
+  display.drawString(0, 0, "Loading......");
+  display.display();
+  delay(500);
+  Serial.print(".");
+
+  display.drawString(0, 0, "Loading.......");
+  display.display();
+  delay(500);
+  Serial.print(".");
+
+  display.drawString(0, 0, "Loading........");
+  display.display();
+  delay(500);
+  Serial.print(".");
+
+  display.drawString(0, 0, "Loading.........");
+  display.display();
+  delay(500);
+  Serial.print(".");
+  
   }
   Serial.println("");
   Serial.println("WiFi connected.");
@@ -35,7 +82,7 @@ void connectToWifi(){
 
   server.begin();
 
-  String ipstat = &WiFi.localIP();
+  String ipstat = WiFi.localIP().toString();
  
   display.init();
   display.flipScreenVertically();
