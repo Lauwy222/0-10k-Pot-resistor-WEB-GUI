@@ -34,7 +34,7 @@ void connectToWifi(){
   Serial.println(WiFi.localIP());
 
   String ipstat = WiFi.localIP;
-  
+ 
   display.init();
   display.flipScreenVertically();
   display.drawString(0, 0, const String &ipstat);
