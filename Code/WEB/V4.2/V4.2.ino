@@ -35,7 +35,7 @@ void connectToWifi(){
 
   server.begin();
 
-  String ipstat = WiFi.localIP;
+  String ipstat = &WiFi.localIP();
  
   display.init();
   display.flipScreenVertically();
