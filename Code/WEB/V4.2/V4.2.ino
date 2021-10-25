@@ -33,14 +33,15 @@ void connectToWifi(){
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 
+  server.begin();
+
   String ipstat = WiFi.localIP;
  
   display.init();
   display.flipScreenVertically();
-  display.drawString(0, 0, const String &ipstat);
+  display.drawString(0, 0, ipstat);
   display.display();
   
-  server.begin();
 }
 
 void setup() {
