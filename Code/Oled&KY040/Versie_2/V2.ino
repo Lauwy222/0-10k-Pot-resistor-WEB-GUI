@@ -5,7 +5,9 @@
 // init the button
 KY040 Rotary(D5, D6, D7);
 SSD1306  display(0x3C, D2, D3);
-
+int number = 50;
+String volume = String(number, DEC);
+String vol = "Volume: " + volume;
 
 void OnButtonClicked(void) {
   Serial.println("Button 1: clicked");
@@ -14,17 +16,30 @@ void OnButtonClicked(void) {
   display.display();
 }
 void OnButtonLeft(void) {
-  Serial.println("Button 1: rotating left");
-  display.init();
-  display.drawString(0, 0, "Button 1: rotating left");
-  display.display();
+ if(number!=0){
+    --number;
+    volume = String(number, DEC);
+    vol = "Volume: " + volume;
+    Serial.println("Volume " + volume);
+    Serial.println("Vol " + vol);
+    display.init();
+    display.drawString(0, 0, vol);
+    display.display();
+  }
 }
 void OnButtonRight(void) {
-  Serial.println("Button 1: rotating right");
-  display.init();
-  display.drawString(0, 0, "Button 1: rotating right");
-  display.display();
-}
+  if(number!=100){
+    ++number;
+    volume = String(number, DEC);
+    vol = "Volume: " + volume;
+    Serial.println("Volume " + volume);
+    Serial.println("Vol " + vol);
+    display.init();
+    display.drawString(0, 0, vol);
+    display.display();
+  }
+  }
+
 
 
 void setup() {
@@ -32,9 +47,8 @@ void setup() {
   display.init();
   Serial.begin(115200);
   Serial.println("Starting...");
-  display.drawString(0, 0, "Starting...");
+  display.drawString(0, 0, vol);
   display.display();
-
 
 
   if ( !Rotary.Begin() ) {
