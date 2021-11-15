@@ -4,7 +4,9 @@
 
 // init the button
 KY040 Rotary(D5, D6, D7);
+//init the display
 SSD1306  display(0x3C, D2, D3);
+//set & calculate values
 int number = 50;
 String volume = String(number, DEC);
 String vol = "Volume: " + volume;
@@ -25,6 +27,10 @@ void OnButtonLeft(void) {
     display.init();
     display.drawString(0, 0, vol);
     display.display();
+    digitalWrite(16, LOW);
+    digitalWrite(4, HIGH);
+    delay(20);
+    digitalWrite(4, LOW);
   }
 }
 void OnButtonRight(void) {
@@ -37,12 +43,20 @@ void OnButtonRight(void) {
     display.init();
     display.drawString(0, 0, vol);
     display.display();
+    digitalWrite(16, HIGH);
+    digitalWrite(4, HIGH);
+    delay(100);
+    digitalWrite(4, LOW);
   }
   }
 
 
 
 void setup() {
+  //declare pins
+  pinMode(D0, OUTPUT);//D0-1-INCREMENT/DECREMENT
+  pinMode(16, OUTPUT);//D8-2-UP/DOWN
+  pinMode(17, OUTPUT);//D4-7
   // open the serial port
   display.init();
   Serial.begin(115200);
