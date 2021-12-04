@@ -70,7 +70,7 @@ void setup() {
   display.drawString(0, 0, vol);
   display.display();
 
-pot.begin(CS,INC,UD):
+pot.begin(CS, INC, UD);
 pot.setPotMin(false);
 
 
