@@ -13,9 +13,9 @@ String volume = String(number, DEC);
 String vol = "Volume: " + volume;
 
 //Set pins for X9C
-#define UD 15;
-#define INC 16;
-#define CS 2;
+#define UD 15
+#define INC 16
+#define CS 2
 
 X9C pot;
 
