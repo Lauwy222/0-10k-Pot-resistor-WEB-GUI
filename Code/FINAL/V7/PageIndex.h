@@ -1,6 +1,6 @@
+const char MAIN_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
-<html>
-  <head>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       html {
@@ -54,35 +54,27 @@
     <h1>Amplifier webserver</h1>
     <br><br>
     <div class="slidecontainer">
-      <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-      <p>Value : <span id="demo"></span></p>
+      <input type="range" min="0" max="100" value="0" class="slider" id="myrange" onchange="send()">
+      <p>Value : <span id="demo">0</span></p>
     </div>
 
     <script>
-      
-      var val = "100";
-      document.getElementById("myRange").value = val;
-
-      function sendData(pos) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-          }
-        };
-        xhttp.open("GET", "setPOS?VOLM="+pos, true);
-        xhttp.send();
+      function send() {
+        fetch('/setPOS?' + new URLSearchParams({
+            VOLM: document.querySelector("#myrange").value,
+        }))
+        document.querySelector("#demo").innerText = document.querySelector("#myrange").value;
       }
-      
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("demo");
-      output.innerHTML = slider.value;
 
-      slider.oninput = function() {
-        output.innerHTML = this.value;
-        sendData(output.innerHTML);
-      }
+      const interval = setInterval(function() {
+        fetch('/getPOS').then(function(response) {
+          return response.text().then(function(text) {
+            document.querySelector("#demo").innerHTML = text;
+            document.querySelector("#myrange").value = text;
+          });
+        });
+      }, 100);
+      
     </script>
-
-  </body>
-</html>
+</body></html>
+)=====";
