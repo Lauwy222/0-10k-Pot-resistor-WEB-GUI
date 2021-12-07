@@ -1,15 +1,23 @@
 #include "KY040rotary.h"
 #include <Wire.h>  
 #include "SSD1306.h"
+#include <X9C.h>
 
 // init the button
 KY040 Rotary(D5, D6, D7);
 //init the display
 SSD1306  display(0x3C, D2, D3);
 //set & calculate values
-int number = 50;
+int number = 0;
 String volume = String(number, DEC);
 String vol = "Volume: " + volume;
+
+//Set pins for X9C
+#define UD 15
+#define INC 16
+#define CS 2
+
+X9C pot;
 
 void OnButtonClicked(void) {
   Serial.println("Button 1: clicked");
@@ -27,10 +35,8 @@ void OnButtonLeft(void) {
     display.init();
     display.drawString(0, 0, vol);
     display.display();
-    digitalWrite(16, LOW);
-    digitalWrite(4, HIGH);
-    delay(20);
-    digitalWrite(4, LOW);
+
+    pot.trimPot(1,X9C_DOWN,false);
   }
 }
 void OnButtonRight(void) {
@@ -43,16 +49,16 @@ void OnButtonRight(void) {
     display.init();
     display.drawString(0, 0, vol);
     display.display();
-    digitalWrite(16, HIGH);
-    digitalWrite(4, HIGH);
-    delay(100);
-    digitalWrite(4, LOW);
+    
+    pot.trimPot(1,X9C_UP,false);
   }
   }
 
 
 
 void setup() {
+
+  
   //declare pins
   pinMode(D0, OUTPUT);//D0-1-INCREMENT/DECREMENT
   pinMode(16, OUTPUT);//D8-2-UP/DOWN
@@ -63,6 +69,9 @@ void setup() {
   Serial.println("Starting...");
   display.drawString(0, 0, vol);
   display.display();
+
+pot.begin(CS, INC, UD);
+pot.setPotMin(false);
 
 
   if ( !Rotary.Begin() ) {
