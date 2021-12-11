@@ -72,7 +72,7 @@ void OnButtonRight(void) {
 //Server handling
 void mainserver(){
   String POS = server.arg("VOLM");
-  number = POS.toInt();
+  number = 100 - POS.toInt();
   delay(15);
   
   displayrendering();

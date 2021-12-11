@@ -78,7 +78,7 @@ void OnButtonRight(void) {
 
 //Server handling
   void mainserver(){
-  String POS = server.arg("servoPOS");
+  String POS = server.arg("VOLM");
   number = POS.toInt();
   delay(15);
   
@@ -89,7 +89,7 @@ void OnButtonRight(void) {
   //DISPLAY render
   void displayrendering(){
     //SETPOT
-    pot.setPot(numer,true);
+    pot.setPot(number,true);
     //Calculate and transform
     volume = String(number, DEC);
     vol = "Volume: " + volume;
@@ -98,9 +98,17 @@ void OnButtonRight(void) {
     Serial.println("Vol " + vol);
     //Display
     display.init();
+    //AP&VOL
+    String ipstat = WiFi.softAPIP().toString();
+    String usr = String(ssid);
+    String passw = String(password);
     display.drawString(0, 0, vol);
+    display.drawString(0, 30, "IP: "+ipstat);
+    display.drawString(0, 40, "SSID: "+usr);
+    display.drawString(0, 50, "PASSW: "+passw);
     display.display();
-
+    //Webserver update
+//    POS = number;
     
   }
   
@@ -113,8 +121,7 @@ void setup() {
   display.init();
   Serial.begin(115200);
   Serial.println("Starting...");
-  display.drawString(0, 0, vol);
-  display.display();
+
 
 pot.begin(CS, INC, UD);
 pot.setPotMin(false);
@@ -135,20 +142,31 @@ pot.setPotMin(false);
   Serial.println("KY-040 rotary encoder OK");
 
   delay(500);
-  
-  WiFi.softAP(ssid, password);  //--> Start Making ESP8266 NodeMCU as an access point
 
-  IPAddress apip = WiFi.softAPIP(); //--> Get the IP server
-  Serial.print("Connect your wifi laptop/mobile phone to this NodeMCU Access Point : ");
+  //Start AP
+  WiFi.softAP(ssid, password); 
+
+  IPAddress apip = WiFi.softAPIP(); 
+  Serial.print("Connect your wifi laptop/mobile phone to this Access Point : ");
   Serial.println(ssid);
   Serial.print("Visit this IP : ");
-  Serial.print(apip); //--> Prints the IP address of the server to be visited
+  Serial.print(apip); 
   Serial.println(" in your browser.");
 
-  server.on("/",handleRoot);  //--> Routine to handle at root location. This is to display web page.
-  server.on("/setPOS",mainserver); //--> Sets servo position from Web request
+  server.on("/",handleRoot);  
+  server.on("/setPOS",mainserver); 
   server.begin();  
   Serial.println("HTTP server started");
+
+  String ipstat = WiFi.softAPIP().toString();
+  String usr = String(ssid);
+  String passw = String(password);
+
+  display.drawString(0, 0, vol);
+  display.drawString(0, 30, "IP: "+ipstat);
+  display.drawString(0, 40, "SSID: "+usr);
+  display.drawString(0, 50, "PASSW: "+passw);
+  display.display();
 }
 
 void loop() {
