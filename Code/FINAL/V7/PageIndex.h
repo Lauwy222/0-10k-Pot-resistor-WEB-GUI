@@ -24,6 +24,8 @@ const char MAIN_page[] PROGMEM = R"=====(
         opacity: 0.7;
         -webkit-transition: .2s;
         transition: opacity .2s;
+        -ms-transform: rotate(180deg); /* IE 9 */
+        transform: rotate(180deg);
       }
 
       .slider:hover {
@@ -55,7 +57,7 @@ const char MAIN_page[] PROGMEM = R"=====(
     <br><br>
     <div class="slidecontainer">
       <input type="range" min="0" max="100" value="0" class="slider" id="myrange" onchange="send()">
-      <p>Value : <span id="demo">0</span></p>
+      <p>Value : -<span id="demo">0</span></p>
     </div>
 
     <script>

@@ -54,8 +54,8 @@ void OnButtonClicked(void) {
 
 //KY040 LEFT
 void OnButtonLeft(void) {
- if(number!=0){
-    --number;
+ if(number!=100){
+    ++number;
 
     displayrendering();  
   }
@@ -63,8 +63,8 @@ void OnButtonLeft(void) {
 
 //KY040 RIGHT
 void OnButtonRight(void) {
-  if(number!=100){
-    ++number;
+  if(number!=0){
+    --number;
 
     displayrendering();    
   }}
@@ -90,7 +90,7 @@ void displayrendering(){
   pot.setPot(number,true);
   //Calculate and transform
   volume = String(number, DEC);
-  vol = "Volume: " + volume;
+  vol = "Volume: -" + volume;
   //Serial MON
   Serial.println("Volume " + volume);
   Serial.println("Vol " + vol);
