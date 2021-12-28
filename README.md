@@ -28,9 +28,10 @@ All important files regarding to our AMPLIFIER project.
 ## Installation
 The installation guide can be found [here](https://github.com/Lauwy222/Project_Elektronica_Microprocessor/blob/main/INSTALL.md).
 
-##Schematic
+## Schematic
+
 The circuit schematic.
-![Schematic](/img/schem.png)
+![Schematic](/IMG/schem.png)
 
 
 ## Usefull links
