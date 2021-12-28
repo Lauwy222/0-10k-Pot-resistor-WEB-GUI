@@ -1,4 +1,4 @@
-//rotary encoder
+ 18//rotary encoder
 #include "KY040rotary.h"
 #include <Wire.h>  
 
@@ -54,8 +54,8 @@ void OnButtonClicked(void) {
 
 //KY040 LEFT
 void OnButtonLeft(void) {
- if(number!=0){
-    --number;
+ if(number!=100){
+    ++number;
 
     displayrendering();  
   }
@@ -63,47 +63,49 @@ void OnButtonLeft(void) {
 
 //KY040 RIGHT
 void OnButtonRight(void) {
-  if(number!=100){
-    ++number;
+  if(number!=0){
+    --number;
 
     displayrendering();    
   }}
 
 //Server handling
-  void mainserver(){
+void mainserver(){
   String POS = server.arg("VOLM");
   number = POS.toInt();
   delay(15);
   
   displayrendering();
   server.send(200, "text/plane","");
-  }
+}
+
+void returnpos() {
+  String s = String(number, DEC);
+  server.send(200, "text/plain", s); //Send web page
+}
 
   //DISPLAY render
-  void displayrendering(){
-    //SETPOT
-    pot.setPot(number,true);
-    //Calculate and transform
-    volume = String(number, DEC);
-    vol = "Volume: " + volume;
-    //Serial MON
-    Serial.println("Volume " + volume);
-    Serial.println("Vol " + vol);
-    //Display
-    display.init();
-    //AP&VOL
-    String ipstat = WiFi.softAPIP().toString();
-    String usr = String(ssid);
-    String passw = String(password);
-    display.drawString(0, 0, vol);
-    display.drawString(0, 30, "IP: "+ipstat);
-    display.drawString(0, 40, "SSID: "+usr);
-    display.drawString(0, 50, "PASSW: "+passw);
-    display.display();
-    //Webserver update
-//    POS = number;
-    
-  }
+void displayrendering(){
+  //SETPOT
+  pot.setPot(number,true);
+  //Calculate and transform
+  volume = String(number, DEC);
+  vol = "Volume: -" + volume;
+  //Serial MON
+  Serial.println("Volume " + volume);
+  Serial.println("Vol " + vol);
+  //Display
+  display.init();
+  //AP&VOL
+  String ipstat = WiFi.softAPIP().toString();
+  String usr = String(ssid);
+  String passw = String(password);
+  display.drawString(0, 0, vol);
+  display.drawString(0, 30, "IP: "+ipstat);
+  display.drawString(0, 40, "SSID: "+usr);
+  display.drawString(0, 50, "PASSW: "+passw);
+  display.display();  
+}
   
 void setup() {
   //declare pins
@@ -148,7 +150,8 @@ pot.setPotMin(false);
   Serial.println(apip); 
  
   server.on("/",handleRoot);  
-  server.on("/setPOS",mainserver); 
+  server.on("/setPOS",mainserver);
+  server.on("/getPOS",returnpos); 
   server.begin();  
   Serial.println("HTTP server started");
 
