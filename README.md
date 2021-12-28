@@ -13,12 +13,12 @@ All important files regarding to our AMPLIFIER project.
 - [x] VU meter
 
 ## Microcontroller
-- [ ] Volume control (APP/Knop)
-- [ ] Volume read (APP/Display)
-- [ ] VU meter (APP/Display)
+- [x] Volume control (APP/Knop)
+- [x] Volume read (APP/Display)
+- [x] VU meter (APP/Display)
 
 ## 3D
-- [ ] PCB (Printen)
+- [x] PCB (Printen)
     - [ ] WemosR1D1
     - [ ] Amplifier
     - [ ] VU meter
