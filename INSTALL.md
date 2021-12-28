@@ -1,4 +1,4 @@
-## Installation
+## Installation method 1
 
 Install the [Arduino IDE][IDE] and the [CH340G chipset drivers(WINDOWS)][CH340G-Drivers]. Or go back [HOME][HOME]
 
@@ -37,7 +37,14 @@ Install the [Arduino IDE][IDE] and the [CH340G chipset drivers(WINDOWS)][CH340G-
 
 `restart the IDE`
 
+## Installation method 2
+> 001
 
+`Install ESPHomeFlasher`
+
+> 002
+
+`Flash the latest release on the device`
 
 
 ## Usefull links
