@@ -1,4 +1,4 @@
- 18//rotary encoder
+//rotary encoder
 #include "KY040rotary.h"
 #include <Wire.h>  
 
