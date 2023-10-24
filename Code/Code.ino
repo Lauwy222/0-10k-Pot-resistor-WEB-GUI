@@ -55,7 +55,7 @@ void OnButtonClicked(void) {
 //KY040 LEFT
 void OnButtonLeft(void) {
  if(number!=100){
-    ++number;
+    number+=10;
 
     displayrendering();  
   }
@@ -64,7 +64,7 @@ void OnButtonLeft(void) {
 //KY040 RIGHT
 void OnButtonRight(void) {
   if(number!=0){
-    --number;
+    number-=10;
 
     displayrendering();    
   }}
